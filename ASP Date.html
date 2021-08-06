@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP Date时间内置对象</title>
+    <script>
+        //创建日期 获得当前时间 
+        // var t = new Date();
+        // console.log(t);
+
+        // //参数的常用写法
+        // var tt = new Date(2021, 3, 29);
+        // var tt1 = new Date('2021-4-29 21:48:00');
+        // console.log(tt);
+        // console.log(tt1);
+
+        // console.log(t.getFullYear()); //年
+        // console.log(t.getMonth()); //月
+        // console.log(t.getDate()); //日 
+        // console.log(t.getHours()); //时
+        // console.log(t.getMinutes()); //分
+        // console.log(t.getSeconds()); //秒
+        // console.log(t.getDay()); //星期
+
+        //显示当前的时间
+        // function getTime() {
+        //     var time = new Date(),
+        //         year = time.getFullYear(),
+        //         month = time.getMonth() + 1,
+        //         month = month < 10 ? '0' + month : month,
+        //         date = time.getDate(),
+        //         date = date < 10 ? '0' + date : date,
+        //         hours = time.getHours(),
+        //         hours = hours < 10 ? '0' + hours : hours,
+        //         minuter = time.getMinutes(),
+        //         minuter = minuter < 10 ? '0' + minuter : minuter,
+        //         seconds = time.getSeconds(),
+        //         seconds = seconds < 10 ? '0' + seconds : seconds,
+        //         day = time.getDay(),
+        //         t = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+        //         s = year + ' 年 ' + month + ' 月 ' + date + ' 日 ' + hours + ':' + minuter + ':' + seconds + '  ' + t[day];
+        //     return s;
+        // }
+        // console.log(getTime());
+
+        //总的毫秒数获取(时间戳) 从1970年1月1日到现在
+        //通过valueOf()   getTime()
+        // var ss = new Date();
+        // console.log(ss.valueOf());
+        // console.log(ss.getTime());
+
+        //简单的毫秒获取方式 最常用的调用方式
+        // var ss1 = +new Date();
+        // console.log(ss1);
+
+        //H5 新增的 获得总的毫秒数
+        // var ss2 = Date.now();
+        // console.log(ss2);
+
+        //倒计时案例
+        function conutDown(time) {
+            var t = +new Date(time),
+                t1 = +new Date(),
+                t2 = (t - t1) / 1000,
+                d = parseInt(t2 / 60 / 60 / 24), //计算天数
+                h = parseInt(t2 / 60 / 60 % 24), //计算小时
+                h = h < 10 ? '0' + h : h,
+                m = parseInt(t2 / 60 % 60), //计算分钟
+                m = m < 10 ? '0' + m : m,
+                s = parseInt(t2 % 60), //计算当前的秒
+                s = s < 10 ? '0' + s : s,
+                t = d + ' 天 ' + h + ' 时 ' + m + ' 分 ' + s + ' 秒';
+            return t;
+        }
+        var time = conutDown('2021-5-1 8:00:30');
+        console.log(new Date());
+        console.log(time);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
